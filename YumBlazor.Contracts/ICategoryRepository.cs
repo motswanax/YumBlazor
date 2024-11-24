@@ -1,6 +1,6 @@
 ﻿namespace YumBlazor.Contracts;
 
-public class Class1
+public interface ICategoryRepository
 {
 
 }
