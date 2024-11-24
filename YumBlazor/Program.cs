@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
 using YumBlazor.Components;
 using YumBlazor.Components.Account;
-using YumBlazor.Data;
+using YumBlazor.Entities;
+using YumBlazor.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 

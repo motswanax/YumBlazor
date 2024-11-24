@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\YumBlazor.Entities\YumBlazor.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
