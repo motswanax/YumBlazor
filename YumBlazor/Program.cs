@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 using YumBlazor.Components;
 using YumBlazor.Components.Account;
+using YumBlazor.Contracts;
 using YumBlazor.Entities;
 using YumBlazor.Repositories;
 
@@ -17,6 +18,7 @@ builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<IdentityUserAccessor>();
 builder.Services.AddScoped<IdentityRedirectManager>();
 builder.Services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 builder.Services.AddAuthentication(options =>
     {
