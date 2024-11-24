@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\YumBlazor.Repositories\YumBlazor.Repositories.csproj" />
+    <ProjectReference Include="..\YumBlazor.Utilities\YumBlazor.Utilities.csproj" />
   </ItemGroup>
 
 </Project>
