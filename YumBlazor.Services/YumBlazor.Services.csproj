@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\YumBlazor.Repositories\YumBlazor.Repositories.csproj" />
   </ItemGroup>
 
