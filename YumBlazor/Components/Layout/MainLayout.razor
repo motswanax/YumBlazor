@@ -1,6 +1,15 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
+    @*<AuthorizeView>
+        Any authorized user
+    </AuthorizeView>
+    <AuthorizeView Roles="@SD.Role_Admin">
+        Admin
+    </AuthorizeView>
+    <AuthorizeView Roles="@SD.Role_Customer">
+        Customer
+    </AuthorizeView>*@
     <div class="sidebar">
         <NavMenu />
     </div>
