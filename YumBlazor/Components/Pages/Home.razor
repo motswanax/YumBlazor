@@ -51,7 +51,7 @@ else
                                     }
 
                                 </div>
-                                <div class="col-6 text-end px-3">
+                                <div class="col-6 text-end text-danger px-3 h3">
                                     @prod.Price.ToString("C", CultureInfo.GetCultureInfo("en-us"))
                                 </div>
                             </div>
@@ -69,10 +69,8 @@ else
                                 <h5 class="card-title text-center lead text-success">@prod.Name</h5>
                                 <p class="card-text mt-2">@((MarkupString)@prod.Description)</p>
                                 <h4 class="text-center">
-                                    <i class="bi bi-cart3 btn btn-success text-right  px-5" style="width:300px"> Add to cart</i>
+                                    <i class="bi bi-cart3 btn btn-success text-right px-5 form-control"> Add to cart</i>
                                 </h4>
-                                <p class="card-text mt-2">Description</p>
-
                             </div>
                         </div>
                     </div>
