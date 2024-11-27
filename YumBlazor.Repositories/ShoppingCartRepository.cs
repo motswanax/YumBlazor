@@ -15,20 +15,27 @@ public class ShoppingCartRepository : IShoppingCartRepository
 
     public async Task<bool> ClearCartAsync(string? userId)
     {
-        var cartItems = await _db.ShoppingCarts.Where(u => u.UserId == userId).ToListAsync();
+        var cartItems = await _db.ShoppingCarts
+            .Where(u => u.UserId == userId)
+            .ToListAsync();
         _db.ShoppingCarts.RemoveRange(cartItems);
         return await _db.SaveChangesAsync() > 0;
     }
 
     public async Task<IEnumerable<ShoppingCart>> GetAllAsync(string? userId)
     {
-        return await _db.ShoppingCarts.Where(u => u.UserId == userId).Include(u => u.Product).ToListAsync();
+        return await _db.ShoppingCarts
+            .Where(u => u.UserId == userId)
+            .Include(u => u.Product)
+            .ToListAsync();
     }
 
     public async Task<int> GetTotalCartCartCountAsync(string? userId)
     {
         int cartCount = 0;
-        var cartItems = await _db.ShoppingCarts.Where(u => u.UserId == userId).ToListAsync();
+        var cartItems = await _db.ShoppingCarts
+            .Where(u => u.UserId == userId)
+            .ToListAsync();
 
         foreach (var item in cartItems)
         {
