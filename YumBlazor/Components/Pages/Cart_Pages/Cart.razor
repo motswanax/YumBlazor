@@ -3,6 +3,7 @@
 @using System.Globalization
 @inject AuthenticationStateProvider _AuthenticationStateProvider
 @inject IShoppingCartRepository _cartRepository
+@inject IOrderRepository _orderRepository
 @inject NavigationManager _navigationManager
 @attribute [Authorize]
 
@@ -171,13 +172,13 @@ else
 
     private async Task ProcessOrderCreation()
     {
-        //IsProcessing = true;
-        //await Task.Yield();
-        //OrderHeader.OrderDetails = SD.ConvertShoppingCartListToOrderDetail(ShoppingCarts.ToList());
+        IsProcessing = true;
+        await Task.Yield();
+        OrderHeader.OrderDetails = SD.ConvertShoppingCartListToOrderDetail(ShoppingCarts.ToList());
 
         //var session = _paymentService.CreateStripeCheckoutSession(OrderHeader);
         //OrderHeader.SessionId = session.Id;
-        //await _orderRepository.CreateAsync(OrderHeader);
+        await _orderRepository.CreateAsync(OrderHeader);
         //_navigationManager.NavigateTo(session.Url);
     }
 }
