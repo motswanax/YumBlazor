@@ -3,6 +3,7 @@
 @using System.Security.Claims
 @inject IOrderRepository _orderRepository
 @inject NavigationManager _navigationManager
+@attribute [Authorize]
 
 @if (IsProcessing)
 {
@@ -42,7 +43,7 @@
         IsProcessing = true;
         StateHasChanged();
 
-        await CheckAuthoriztion();
+        await CheckAuthorization();
         @if (IsAdmin == true)
         {
             OrderHeaders = await _orderRepository.GetAllAsync();
@@ -56,7 +57,7 @@
         IsProcessing = false;
     }
 
-    private async Task CheckAuthoriztion()
+    private async Task CheckAuthorization()
     {
         if (AuthenticationState is not null)
         {
