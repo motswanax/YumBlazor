@@ -60,18 +60,17 @@ else
                     </div>
                     <div class="col-7 text-end">
                         @if (OrderHeader.Status != SD.StatusCancelled && OrderHeader.Status != SD.StatusCompleted
-                       && _AuthenticationStateProvider.GetAuthenticationStateAsync().GetAwaiter().GetResult().User?.IsInRole(SD.Role_Admin) == true
-                       )
+                            && _AuthenticationStateProvider.GetAuthenticationStateAsync().GetAwaiter().GetResult().User?.IsInRole(SD.Role_Admin) == true)
                         {
-                            <button class="btn btn-danger m-2 p-2" @onclick="()=>UpdateStatus(SD.StatusCancelled)" style="width:150px;">Cancel Order</button>
+                            <button class="btn btn-danger m-2 p-2" @onclick="() => UpdateStatus(SD.StatusCancelled)" style="width:150px;">Cancel Order</button>
 
                             @if (OrderHeader.Status == SD.StatusApproved)
                             {
-                                <button class="btn btn-primary m-2 p-2" @onclick="()=>UpdateStatus(SD.StatusReadyForPickUp)" style="width:150px;">Ready for Pickup</button>
+                                <button class="btn btn-primary m-2 p-2" @onclick="() => UpdateStatus(SD.StatusReadyForPickUp)" style="width:150px;">Ready for Pickup</button>
                             }
                             @if (OrderHeader.Status == SD.StatusReadyForPickUp)
                             {
-                                <button class="btn btn-success m-2 p-2" @onclick="()=>UpdateStatus(SD.StatusCompleted)" style="width:150px;">Completed</button>
+                                <button class="btn btn-success m-2 p-2" @onclick="() => UpdateStatus(SD.StatusCompleted)" style="width:150px;">Completed</button>
                             }
                         }
                     </div>

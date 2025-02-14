@@ -12,6 +12,7 @@
         font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com;
         upgrade-insecure-requests;" />
     <base href="/" />
+    <RadzenTheme Theme="standard" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
@@ -36,6 +37,7 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/js/notification.js"></script>
     <script src="/js/common.js"></script>
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js?v=@(typeof(Radzen.Colors).Assembly.GetName().Version)"></script>
 </body>
 
 </html>
