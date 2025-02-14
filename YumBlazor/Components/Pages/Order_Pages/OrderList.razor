@@ -11,6 +11,69 @@
         <img src="/images/loading.gif" alt="loading" />
     </div>
 }
+else
+{
+    <div class="card shadow border-0 m-4">
+        <div class="card-header bg-black bg-gradient ml-0 py-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="text-white py-2">Order List</h2>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-4">
+            @if (OrderHeaders.Any())
+            {
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone number</th>
+                            <th>Email</th>
+                            <th>Order total</th>
+                            <th>Order date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var obj in OrderHeaders)
+                        {
+                            <tr>
+                                <td>
+                                    @obj.Id
+                                </td>
+                                <td>
+                                    @obj.Name
+                                </td>
+                                <td>
+                                    @obj.PhoneNumber
+                                </td>
+                                <td>
+                                    @obj.Email
+                                </td>
+                                <td>
+                                    @obj.OrderTotal.ToString("c")
+                                </td>
+                                <td>
+                                    @obj.OrderDate
+                                </td>
+                                <td>
+                                    @obj.Status
+                                </td>
+                                <td>
+                                    <a href="@($"order/details/{obj.Id}")" class="btn btn-primary">
+                                        <i class="bi bi-pencil-square"></i> Details
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+}
 
 @code {
     private bool IsProcessing { get; set; } = true;
@@ -20,7 +83,7 @@
     private string? UserId { get; set; }
 
     [CascadingParameter]
-    public Task<AuthenticationState> AuthenticationState { get; set; }
+    public required Task<AuthenticationState> AuthenticationState { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
