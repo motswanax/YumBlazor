@@ -43,6 +43,11 @@ builder.Services.AddAuthentication(options =>
         options.ClientId = Environment.GetEnvironmentVariable("YumBlazorMicrosoftId") ?? throw new InvalidOperationException("YumBlazorMicrosoftId not found in env variables.");
         options.ClientSecret = Environment.GetEnvironmentVariable("YumBlazorMicrosoftSecret") ?? throw new InvalidOperationException("YumBlazorMicrosoftSecret not found in env variables.");
     })
+    .AddGoogle(options =>
+    {
+        options.ClientId = Environment.GetEnvironmentVariable("YumBlazorGoogleId") ?? throw new InvalidOperationException("YumBlazorGoogleId not found in env variables.");
+        options.ClientSecret = Environment.GetEnvironmentVariable("YumBlazorGoogleSecret") ?? throw new InvalidOperationException("YumBlazorGoogleSecret not found in env variables.");
+    })
     .AddIdentityCookies();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
