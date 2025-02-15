@@ -33,6 +33,11 @@ builder.Services.AddAuthentication(options =>
         options.DefaultScheme = IdentityConstants.ApplicationScheme;
         options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
     })
+    .AddFacebook(options =>
+    {
+        options.AppId = Environment.GetEnvironmentVariable("YumBlazorFbAppId") ?? throw new InvalidOperationException("YumBlazorFbAppId not found in env variables.");
+        options.AppSecret = Environment.GetEnvironmentVariable("YumBlazorFbAppSecret") ?? throw new InvalidOperationException("YumBlazorFbAppSecret not found in env variables.");
+    })
     .AddIdentityCookies();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
