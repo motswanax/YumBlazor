@@ -24,6 +24,7 @@ else
             <div class="d-grid gap-2">
                 @foreach (var provider in externalLogins)
                 {
+                    Console.WriteLine(provider.Name);
                     <button type="submit" class="btn btn-outline-dark" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">
                         Connect <span class="d-none d-sm-inline">using @provider.DisplayName</span>
                     </button>
