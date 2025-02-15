@@ -9,6 +9,7 @@ using YumBlazor.Components.Account;
 using YumBlazor.Contracts;
 using YumBlazor.Entities;
 using YumBlazor.Repositories;
+using YumBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddRadzenComponents();
+builder.Services.AddSingleton<SharedStateService>();
 
 builder.Services.AddAuthentication(options =>
     {
